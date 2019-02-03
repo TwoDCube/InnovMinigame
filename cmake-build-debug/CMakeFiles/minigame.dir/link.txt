@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/minigame.dir/main.cpp.o CMakeFiles/minigame.dir/Game.cpp.o CMakeFiles/minigame.dir/LED.cpp.o  -o minigame -lSDL2 

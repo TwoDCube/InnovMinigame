@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/twodcube/dev/minigame/Game.cpp
+Game.h
+/home/twodcube/dev/minigame/Game.h
+LED.h
+/home/twodcube/dev/minigame/LED.h
+
+/home/twodcube/dev/minigame/Game.h
+SDL2/SDL.h
+-
+iostream
+-
+
+/home/twodcube/dev/minigame/LED.h
+vector
+-
+
