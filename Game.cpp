@@ -6,6 +6,7 @@ std::vector<bool> allled;
 int selectedled = NULL;
 int gamestate = 0;
 bool win = false;
+int tick = 0;
 
 Game::Game()
 = default;
@@ -82,6 +83,7 @@ void Game::handleEvents()
 
 void Game::update()
 {
+    tick++;
 	srand (time(NULL));
  	switch (gamestate) {
  		case 0: // We need to start a new led
@@ -93,6 +95,16 @@ void Game::update()
 			break;
 
  		case 1: // waiting for user input
+            if (tick % 120 == 0) {
+                if(allled.at(selectedled)){
+                    led->change(selectedled, 0, 255, 0, 255);
+                } else {
+                    led->change(selectedled, 0, 0, 0, 0);
+                }
+            }
+            if (tick % 120 == 60) {
+                led->change(selectedled, 255, 0, 0, 255);
+            }
  			if(isButton1Pressed()) {
  				if (selectedled != 0) {
  					if (allled.at(selectedled-1)) {
@@ -128,7 +140,7 @@ void Game::update()
  				}
  				if (win) std::cout << "WIN" << std::endl;
 
- 				SDL_Delay(1000);
+ 				SDL_Delay(250);
  				gamestate = 0;
  			} else if (isButton2Pressed()) {
 				if (allled.at(selectedled)) {
@@ -146,7 +158,7 @@ void Game::update()
 				}
 				if (win) std::cout << "WIN" << std::endl;
 
-				SDL_Delay(1000);
+				SDL_Delay(250);
 				gamestate = 0;
  			}
 			break;
